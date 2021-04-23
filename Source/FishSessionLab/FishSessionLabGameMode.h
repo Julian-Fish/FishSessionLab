@@ -13,6 +13,8 @@ class AFishSessionLabGameMode : public AGameModeBase
 
 public:
 	AFishSessionLabGameMode();
+
+	void PostLogin(APlayerController *newPlayer);
 };
 
 

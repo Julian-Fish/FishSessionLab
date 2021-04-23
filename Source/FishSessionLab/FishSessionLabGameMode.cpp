@@ -1,9 +1,11 @@
 // Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
+
 #include "FishSessionLabGameMode.h"
 #include "FishSessionLabHUD.h"
 #include "FishSessionLabCharacter.h"
 #include "UObject/ConstructorHelpers.h"
+
 
 AFishSessionLabGameMode::AFishSessionLabGameMode()
 	: Super()
@@ -14,4 +16,10 @@ AFishSessionLabGameMode::AFishSessionLabGameMode()
 
 	// use our custom HUD class
 	HUDClass = AFishSessionLabHUD::StaticClass();
+}
+
+void AFishSessionLabGameMode::PostLogin(APlayerController* newPlayer)
+{
+	//UELogHelper::LOG_FISH("post login");
+	
 }
