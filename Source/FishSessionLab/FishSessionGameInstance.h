@@ -24,12 +24,20 @@ protected:
 	virtual void CreateServer();
 
 	UFUNCTION(BlueprintCallable)
-	virtual void JoinServer();
+	virtual bool JoinServer();
 
-private:
-	IOnlineSessionPtr _sessionInterface;
+	UFUNCTION(BlueprintCallable)
+	virtual void FindServer();
+
+	UFUNCTION(BlueprintCallable)
+	virtual void DestroyServer();
+
+	IOnlineSessionPtr _session;
+	TSharedPtr<FOnlineSessionSearch> _sessionSearch;
 
 	// complete event
 	void _onCreateSessionComplete(FName serverName, bool succeeded);
-	
+	void _onFindSessionComplete(bool succeeded);
+	void _onJoinSessionComplete(FName serverName, EOnJoinSessionCompleteResult::Type Result);
+	void _onDestroySessionComplete(FName serverName, bool succeeded);
 };
